@@ -50,6 +50,7 @@ h1 {
 
 .tanks {
     display: flex;
+    flex-wrap: wrap;
     
 }
 

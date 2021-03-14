@@ -1,32 +1,4 @@
-// POST request 
-document.getElementById("addtank").addEventListener("click", function(event) {
-    event.preventDefault();
-
-    let Llocation = document.getElementById("TL").value;
-    let Llat = document.getElementById("lat").value;
-    let Llong = document.getElementById("long").value;
-    let Lpercentage_full = document.getElementById("perc_full").value;
-
-    let jsonBody = {
-        location:Llocation,
-        lat:Llat,
-        long:Llong,
-        percentage_full:Lpercentage_full,
-    }
-
-    fetch("http://localhost:5000/data" , {
-        method: "POST",
-        body:JSON.stringify(jsonBody),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-
-        .then((res) => res.json())
-        .then((json) => console.log(json));
-
-});
-
+// create Tank 
 function createTankCard(data, x) {
     var tankCard = document.createElement("DIV");
     tankCard.classList.add("tank-cards");
@@ -91,6 +63,44 @@ function createTankCard(data, x) {
 
     return tankCard;
 }
+
+// POST request 
+document.getElementById("addtank").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    let Llocation = document.getElementById("TL").value;
+    let Llat = document.getElementById("lat").value;
+    let Llong = document.getElementById("long").value;
+    let Lpercentage_full = document.getElementById("perc_full").value;
+
+    let jsonBody = {
+        location:Llocation,
+        lat:Llat,
+        long:Llong,
+        percentage_full:Lpercentage_full,
+    }
+
+    fetch("http://localhost:5000/data" , {
+        method: "POST",
+        body:JSON.stringify(jsonBody),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+
+        .then((res) => res.json())
+        .then((json) => {
+            console.log(json);
+            var c = document.getElementsByClassName("tanks")[0].childElementCount;
+            console.log(c)
+            document.getElementsByClassName("tanks")[0].appendChild(createTankCard(json, c));
+        })
+      
+       
+
+});
+
+
 //GET request
 fetch ("http://localhost:5000/data")
     .then((res) => res.json())
