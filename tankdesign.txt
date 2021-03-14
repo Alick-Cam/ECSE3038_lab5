@@ -1,0 +1,14 @@
+        <div class="tank-cards">
+            <div class="id">1</div>
+            <img src="" alt="" class="nicelittletankimage">
+            <div id="location-desc" class = "location-desc">Alick's Farm</div>
+            <div id="tank-card-coordinates" class = "tank-card-coordinates">
+                <div class="style1cord">
+                    <div class="coordinate-label">Lat:</div><div class="coordinate-values">18.1096°</div>
+                </div>
+                <div class="style2cord">
+                    <div class="coordinate-label">Long:</div><div class="coordinate-values">77.2975°</div>
+                </div>
+            </div>
+            <div id="tank-card-perc-full" class ="tank-card-perc-full">90%</div> 
+        </div>
